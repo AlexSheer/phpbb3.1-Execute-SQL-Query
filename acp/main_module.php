@@ -28,7 +28,7 @@ class main_module
 		$submit = $request->variable('submit', false, false, \phpbb\request\request_interface::POST);
 		$show_results = $request->variable('show_results', false);
 
-		$sql_query = $request->variable('sql_query', '', true);
+		$sql_query = $sql_query_text = $request->variable('sql_query', '', true);
 
 		add_form_key('sheer/admsql');
 		if ($submit)
@@ -125,6 +125,7 @@ class main_module
 			'MESSAGE_TEXT'		=> $message,
 			'S_ERROR'			=> (sizeof($error)) ? implode('<br />', $error) : '',
 			'S_SHOW_RESULTS'	=> $show_results,
+			'SQL_QUERY'			=> $sql_query_text,
 			'U_ACTION'			=> $this->u_action,
 			)
 		);
