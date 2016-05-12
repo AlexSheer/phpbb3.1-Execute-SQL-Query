@@ -1,0 +1,88 @@
+<!-- INCLUDE overall_header.html -->
+
+<a name="maincontent"></a>
+
+<h1>{L_ACP_SQL_EXECUTE}</h1>
+<p>{L_ACP_ACP_SQL_EXECUTE_EXPLAIN}</p>
+
+<!-- IF MESSAGE_TEXT or S_ERROR -->
+<div <!-- IF S_ERROR -->class="errorbox"<!-- ELSE -->class="successbox"<!-- ENDIF -->>
+	<h3>{L_INFORMATION}</h3>
+	<p><!-- IF S_ERROR -->{S_ERROR}<!-- ELSE -->{MESSAGE_TEXT}<!-- ENDIF --><br />
+</div>
+<!-- ENDIF -->
+<!-- IF S_SHOW_RESULTS and not S_ERROR -->
+<div>
+	<h2>{L_QUERY_RESULT}</h2>
+	<!-- BEGIN queries -->
+		<dl class="codebox"><dt>{L_SQL_QUERY_LEGEND}{L_COLON} <a href="#" onclick="selectCode(this); return false;">{L_SELECT_ALL_CODE}</a></dt><dd><code>
+			{queries.QUERY}
+		</code></dd></dl>
+		<div style="overflow: auto;">
+			<table cellspacing="1" style="color: #000000;">
+				<!-- IF .queries.headings -->
+				<colgroup>
+					<!-- BEGIN headings -->
+					<col style="text-align: center;" />
+					<!-- END headings -->
+				</colgroup>
+				<thead>
+					<tr>
+						<!-- BEGIN headings -->
+						<th><strong>{headings.FIELD_NAME}</strong></th>
+						<!-- END headings -->
+					</tr>
+				</thead>
+				<!-- ENDIF -->
+				<tbody>
+					<!-- IF .queries.resultdata -->
+						<!-- BEGIN resultdata -->
+						<tr class="row{resultdata.ROWSTYLE}">
+							<!-- BEGIN resultdatafields -->
+							<td>
+								<strong>{resultdatafields.VALUE}</strong>
+							</td>
+							<!-- END resultdatafields -->
+						</tr>
+						<!-- END resultdata -->
+					<!-- ELSE -->
+						<tr class="row2">
+							<td style="text-align: center;">
+								<strong>{L_NO_RESULTS}</strong>
+							</td>
+						</tr>
+					<!-- ENDIF -->
+				</tbody>
+			</table>
+		</div>
+
+		<!-- IF not queries.S_LAST_ROW -->
+			<br />
+		<!-- ENDIF -->
+	<!-- END queries -->
+</div>
+<!-- ENDIF -->
+
+<!-- IF S_ERROR or not MESSAGE_TEXT -->
+<form method="post" action="{U_ACTION}" autocomplete="off">
+	<fieldset>
+		<legend>{L_SQL_QUERY_LEGEND}</legend>
+			<dl>
+				<dt><label for="sql_query">{L_ACP_SQL_EXECUTE}{L_COLON}</label><br /><span>{L_SQL_QUERY_EXPLAIN}</span></dt>
+				<dd><textarea id="sql_query" name="sql_query" rows="20" cols="255"></textarea></dd>
+			</dl>
+			<dl>
+				<dt><label for="show_results">{L_SHOW_RESULTS}{L_COLON}</label><br><span></span></dt>
+				<dd><input id="show_results" name="show_results" type="checkbox"></dd>
+			</dl>
+			<p class="submit-buttons">
+				{S_HIDDEN_FIELDS}
+				{S_FORM_TOKEN}
+				<input class="button1" id="submit" name="submit" value="{L_SUBMIT}" type="submit">&nbsp;
+				<input class="button2" id="reset" name="reset" value="{L_CANCEL}" type="reset">
+			</p>
+	</fieldset>
+</form>
+<!-- ENDIF -->
+
+<!-- INCLUDE overall_footer.html -->
