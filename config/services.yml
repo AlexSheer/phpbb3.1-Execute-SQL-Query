@@ -1,0 +1,8 @@
+services:
+    sheer.admsql.listener:
+        class: sheer\admsql\event\listener
+        arguments:
+            - %core.root_path%
+            - @template
+        tags:
+            - { name: event.listener }
