@@ -1,0 +1,85 @@
+/* Code block */
+dl.codebox {
+	padding: 3px;
+	background-color: #FFFFFF;
+	border: 1px solid #C9D2D8;
+	font-size: 1em;
+}
+
+dl.codebox dt {
+	text-transform: uppercase;
+	border-bottom: 1px solid #CCCCCC;
+	margin-bottom: 3px;
+	font-size: 0.8em;
+	font-weight: bold;
+	display: block;
+	float: none;
+}
+
+blockquote dl.codebox {
+	margin-left: 0;
+}
+
+dl.codebox code {
+	/* Also see tweaks.css */
+	overflow: auto;
+	display: block;
+	height: auto;
+	max-height: 200px;
+	white-space: normal;
+	padding-top: 5px;
+	font: 0.9em Monaco, "Andale Mono","Courier New", Courier, mono;
+	line-height: 1.3em;
+	color: #2E8B57;
+	margin: 2px 0;
+}
+
+/* Code block */
+.codebox {
+	margin: 0.7em 0 0;
+	padding: 3px;
+	border: 1px solid;
+	border-left: 1px solid;
+	font-size: 1em;
+}
+
+.codebox div {
+	border-bottom: 1px solid #CCCCCC;
+	padding-left: 3px;
+	font-size: 0.8em;
+	font-weight: bold;
+	display: block;
+}
+
+blockquote .codebox {
+	margin-left: 0;
+}
+
+.codebox pre {
+	display: block;
+	height: auto;
+	max-height: 400px;
+	overflow-y: auto;
+	/* Prevent horizontal scrolling to fix IE8 overflow bug.
+	This fix can be used only with white-space: pre-wrap & word-wrap: break-word. */
+	overflow-x: hidden;
+	margin: 2px 0;
+	padding: 5px 0.3em 0;
+	background: none;
+	border: none;
+	font: 0.9em/1.3em Consolas, "Lucida Console", "Liberation Mono", Menlo, monospace;
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	-moz-tab-size: 4; -o-tab-size: 4; -webkit-tab-size: 4; tab-size: 4;
+}
+
+.codebox code {
+	padding: 0;
+	background: none;
+	border: none;
+	font: inherit;
+}
+dl.querybox {
+	color: #000000;
+	text-align: left;
+}
